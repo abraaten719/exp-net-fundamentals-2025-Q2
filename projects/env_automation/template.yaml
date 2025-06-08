@@ -1,0 +1,69 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: |
+  VPC with 1 Public Subnet and 1 Private Subnet in 1 AZ.  No NAT Gateway, No VPC Endpoints, DNS enabled.
+
+Parameters:
+  VpcCIDR:
+    Type: String
+    Default: 10.200.123.0/24
+    Description: CIDR block for the VPC (e.g., 10.200.123.0/24)
+
+  PublicSubnetCIDR:
+    Type: String
+    Default: 10.200.123.0/25
+    Description: CIDR block for the public subnet (e.g., 10.200.123.0/25)
+
+  PrivateSubnetCIDR:
+    Type: String
+    Default: 10.200.123.128/25
+    Description: CIDR block for the private subnet (e.g., 10.200.123.128/25)
+
+  AvailabilityZone:
+    Type: AWS::EC2::AvailabilityZone::Name
+    Description: Availability Zone to deploy subnets into
+
+Resources:
+
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: !Ref VpcCIDR
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Tags:
+        - Key: Name
+          Value: CustomVPC
+
+  InternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Name
+          Value: VPCInternetGateway
+
+  AttachGateway:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref VPC
+      InternetGatewayId: !Ref InternetGateway
+
+  PublicSubnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: !Ref PublicSubnetCIDR
+      AvailabilityZone: !Ref AvailabilityZone
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: PublicSubnet
+
+  PrivateSubnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: !Ref PrivateSubnetCIDR
+      AvailabilityZone: !Ref AvailabilityZone
+      Tags:
+        - Key: Name
+          Value: PrivateSubnet

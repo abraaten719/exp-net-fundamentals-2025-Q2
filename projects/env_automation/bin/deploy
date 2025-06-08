@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+# -----------------------------
+# Configurable Parameters
+# -----------------------------
+STACK_NAME="NetBootVPC"
+TEMPLATE_FILE="template.yaml"
+REGION="us-central-1" # Change to your preferred region
+
+# Default parameter values
+VPC_CIDR="10.200.123.0/24"
+PUBLIC_SUBNET_CIDR="10.200.123.0/25"
+PRIVATE_SUBNET_CIDR="10.200.123.128/25"
+AZ="us-central-1a"  # Change if you're using a different region
+
+# -----------------------------
+# Deploy CloudFormation Stack
+# -----------------------------
+echo "Deploying VPC stack..."
+
+#https://docs.aws.amazon.com/cli/latest/reference/cloudformation/deploy/
+aws cloudformation deploy \
+  --stack-name "$STACK_NAME" \
+  --template-file "$TEMPLATE_FILE" \
+  --region "$REGION" \
+  --capabilities CAPABILITY_NAMED_IAM \
+  --parameter-overrides \
+    VpcCIDR="$VPC_CIDR" \
+    PublicSubnetCIDR="$PUBLIC_SUBNET_CIDR" \
+    PrivateSubnetCIDR="$PRIVATE_SUBNET_CIDR" \
+    AvailabilityZone="$AZ"
+
+echo "Deployment initiated. You can monitor progress in the AWS Console or by running:"
+echo "aws cloudformation describe-stacks --stack-name $STACK_NAME --region $REGION"
