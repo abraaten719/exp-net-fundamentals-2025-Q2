@@ -9,3 +9,6 @@
 **6/8/25 - Today is just not my day....Was going thru the video, created the deployment of the vm windows server on Azure, went to take a screenshot of the machine to show as proof, found out all my files were being deleted. Found out OneDrive decided today to do a full backup and is in the process of moving 60GB to OneDrive. This took forever! I have a lot of iso's on my student laptop from previous classes. Now most of it is done, after about 3 hours, still no files. I had to re-clone the repo to local to get them back and it got put in a nesting doll of the previous version. 
 
 Now that that's done, all my work from today is gone and I will have to go through and redo it all, including adding all the screenshots and folders for today and these crazy notes. 
+
+Took 7 hours to try to get Azure template working.....along with the issues from earlier today. Did find out that it was vs studio that kept deleting my files anytime I did a git checkout main. So I am back to no files..... I have to keep working so I will have to clone the repo again.
+
