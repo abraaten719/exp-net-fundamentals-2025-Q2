@@ -1,0 +1,74 @@
+## Downloaded Azure Resource Template
+
+After deploying my Microsoft Windows Server 2025 to Azure VM, I downloaded the Resource Templates to be able to easily deploy again
+
+## Visualization of the completetion of the Azure Windows Server setup
+
+![alt text](/projects/ip-address-management/assets/Set%20up%20VM%20Windows%20Server%20Azure%20complete.png)
+
+## Visualization for Successfull connection of VM
+
+![alt txt](/projects/ip-address-management/assets/VM%20open.png)
+
+## Prompted for ChatGPT to help with the template
+
+We prompted for ChatGPT to help with the parameters, mine had worked when I connected so I was following along and found out that I need to install the Azure CLI. 
+
+## Installing the AZ CLI
+
+From ChatGPTs prompting, I followed the steps to install the CLI. I was getting errors though so it recommended for me to reopen all terminal sessions after install. I am still new to GitHub so it took me a while to find out how to reopen the desktop version. After reopening I was able to login to the Azure CLI/Azure cloud platform. Yay!
+
+## Converting Resource Template to Azure Bicep
+
+Andrew had issue with launching the Server which had no Windows UI. We are going over how to convert the resource template files to Azure Bicep.
+
+Install and Login to Azure CLI
+
+'''sh
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+az ligin --use-device-code
+'''
+
+Convert to Azure Bicep
+
+'''sh
+cd projects/ip-address-management/template/vm
+az bicep decompile --file template.json
+'''
+
+"After decompiling I noticed the files were still verbose.
+It turns out that decompile with Bicep will make the output 1:1 to json.
+I asked ChatGPT to refactor the code to reduce the verboseness of the code.
+
+## Chat GPT helped with param/template
+
+This took like an hour to get the template working. I had the ChatGPT help me weed out the errors and found out that all that was wrong was I didn't save the template....ugh....
+
+I was able to start up the service/VM using the template and bash/az cli.
+
+![alt text](/projects/ip-address-management/assets/Deployed%20template%20to%20create%20VM.png)
+![alt text](/projects/ip-address-management/assets/Opened%20up%20VM%20after%20template.png)
+
+## Updating parameters file
+
+Still checking / rechecking the vms in azure. It didn't actually create anything. Working with ChatGpt to try to update the params file to create in a different region so that it will create.
+
+## Conclusion
+
+I was still unable to create the vm from the template. I kept running into errors with the image or the file path or even that the content for this response was already consumed. I did a verification to check for the resources in the environment and it said they were there but still not showing up back in azure. I can still log into the vm I created earlier if we need to go over that. I have been working on this for over 7 hours.
+
+![alt text](/projects/ip-address-management/assets/Error.png)
+
+Succeeded but didn't create anything: 
+"$ az group show --name net-fun-bootcamp
+{
+  "id": "/subscriptions/cad62625-d8f1-4362-ab38-d29296fae0ee/resourceGroups/net-fun-bootcamp",
+  "location": "canadaeast",
+  "managedBy": null,
+  "name": "net-fun-bootcamp",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null,
+  "type": "Microsoft.Resources/resourceGroups"
+}"
