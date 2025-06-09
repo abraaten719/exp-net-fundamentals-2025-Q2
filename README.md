@@ -10,5 +10,7 @@
 
 Now that that's done, all my work from today is gone and I will have to go through and redo it all, including adding all the screenshots and folders for today and these crazy notes. 
 
-Took 7 hours to try to get Azure template working.....along with the issues from earlier today. Did find out that it was vs studio that kept deleting my files anytime I did a git checkout main. So I am back to no files..... I have to keep working so I will have to clone the repo again.
+Took hours (about 6-7) to try to get Azure template working.....along with the issues from earlier today. Did find out that it was vs studio that kept deleting my files anytime I did a git checkout main. So I am back to no files..... I have to keep working so I will have to clone the repo again.
+
+So when I was able to get into the packet tracer on the local, it deleted my Journal.md. I will need to redo that one again but at least I saved the other Journal file on the windows-networking folder by copying the old one before I was able to get into the local repo. I really don't like working out of the github repo, prefer the local but seriously sooooooooo much has gone wrong today.
 
