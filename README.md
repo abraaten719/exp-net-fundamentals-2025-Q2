@@ -14,3 +14,5 @@ Took hours (about 6-7) to try to get Azure template working.....along with the i
 
 So when I was able to get into the packet tracer on the local, it deleted my Journal.md. I will need to redo that one again but at least I saved the other Journal file on the windows-networking folder by copying the old one before I was able to get into the local repo. I really don't like working out of the github repo, prefer the local but seriously sooooooooo much has gone wrong today.
 
+**6/9/25 - I was able to do most of the stuff from today in the windows firewall session. 
+
