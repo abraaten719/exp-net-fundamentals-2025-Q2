@@ -16,3 +16,5 @@ So when I was able to get into the packet tracer on the local, it deleted my Jou
 
 **6/9/25 - I was able to do most of the stuff from today in the windows firewall session. 
 
+6/14/25 - I was going to come back on Wed/Thurs to get some more homework done. Buuuuuutttttt.........apparently I have small tears in my ligament in my elbow/tennis elbow so I got an injection and that was so sore I couldn't do much with my right arm. So Saturday it is..... feeling a little better... still sore.... but I can manage.
+
